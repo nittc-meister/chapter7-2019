@@ -19,7 +19,6 @@ address = 0x48
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
 GPIO.setup(14, GPIO.OUT)
 GPIO.output(14, GPIO.HIGH)
 time.sleep(1)
@@ -61,3 +60,5 @@ while True:
     db.collection('temperature').document(str(datetime.datetime.now())).set(data)
     time.sleep(1)
 '''
+while True:
+    pass
