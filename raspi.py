@@ -34,9 +34,11 @@ def on_snapshot(doc_snapshot, changes, read_time):
         if led == "ON":
             print "ON"
             # ONにする処理
+            GPIO.output(14, GPIO.HIGH)
         elif led == "OFF":
             print "OFF"
             # OFFにする処理
+            GPIO.output(14, GPIO.LOW)
 
 
 on_ref = db.collection('led').where(u'led', u'==', u'ON')
@@ -58,8 +60,8 @@ while True:
     data = {"temp": temp / 16.0}
     db.collection('temperature').document(str(datetime.datetime.now())).set(data)
     time.sleep(1)
-'''
 
+'''
 # 温度センサと接続できないうちはこの無限ループを使う
 while True:
     pass

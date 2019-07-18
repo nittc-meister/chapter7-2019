@@ -18,6 +18,17 @@
     var ctx = document.getElementById("tempchart");
     
     // TODO:0 ここに設定を入れる
+var firebaseConfig = {
+    apiKey: "AIzaSyDNDr-QWyiOYEnGH-39f9X49xwHp06HZiY",
+    authDomain: "kumikomi-c01a9.firebaseapp.com",
+    databaseURL: "https://kumikomi-c01a9.firebaseio.com",
+    projectId: "kumikomi-c01a9",
+    storageBucket: "kumikomi-c01a9.appspot.com",
+    messagingSenderId: "542272599070",
+    appId: "1:542272599070:web:6d064203b63d4128"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
 
     var db = firebase.firestore()
