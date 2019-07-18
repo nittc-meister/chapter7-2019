@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
     <head>
         <meta charset="utf-8">
@@ -25,17 +25,31 @@
         </div>
         <script>
             // TODO0 ここに設定情報を貼り付ける  
-            
+            var firebaseConfig = {
+                apiKey: "AIzaSyDyjFyw-6bXAXEO1tlxFvKqrrtUWMi0s-E",
+                authDomain: "management-9e553.firebaseapp.com",
+                databaseURL: "https://management-9e553.firebaseio.com",
+                projectId: "management-9e553",
+                storageBucket: "",
+                messagingSenderId: "1021138769172",
+                appId: "1:1021138769172:web:3b2139e52ab0a0aa"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
             // データベースの参照を準備
             var ledRef = firebase.firestore().collection('led')
         
             // TODO1 送信ボタンが押された時の処理
             
             $('#led-on').click(function() {
-		    // {led: "ON"}を送信
+                ledRef.add({
+                    led: "ON"
+                });
             });
             $('#led-off').click(function() {
-		    // {led: "OFF"}を送信
+                ledRef.add({
+                    led: "OFF"
+                });
             });
 
         </script>
