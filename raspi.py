@@ -17,8 +17,9 @@ firebase_admin.initialize_app(cred)
 i2c = smbus.SMBus(1)
 address = 0x48
 
-GPIO.setwarnings(False)
+
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 GPIO.setup(14, GPIO.OUT)
 GPIO.output(14, GPIO.HIGH)
 time.sleep(1)
