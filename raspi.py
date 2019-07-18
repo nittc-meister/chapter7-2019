@@ -34,10 +34,15 @@ def on_snapshot(doc_snapshot, changes, read_time):
         if led == "ON":
             print "ON"
             # ONにする処理
+            GPIO.output(14, GPIO.HIGH)
+            time.sleep(15)
+            GPIO.cleanup
         elif led == "OFF":
             print "OFF"
             # OFFにする処理
-
+            GPIO.output(14, GPIO.LOW)
+            time.sleep(15)
+            GPIO.cleanup
 
 on_ref = db.collection('led').where(u'led', u'==', u'ON')
 off_ref = db.collection('led').where(u'led', u'==', u'OFF')
