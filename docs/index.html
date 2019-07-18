@@ -25,6 +25,17 @@
         </div>
         <script>
             // TODO0 ここに設定情報を貼り付ける  
+            var firebaseConfig = {
+                apiKey: "AIzaSyCVtnM0iQW4uwDK58meEUwOT3Rb1P4F8-U",
+                authDomain: "meister2019-python-iot-7.firebaseapp.com",
+                databaseURL: "https://meister2019-python-iot-7.firebaseio.com",
+                projectId: "meister2019-python-iot-7",
+                storageBucket: "meister2019-python-iot-7.appspot.com",
+                messagingSenderId: "124717722799",
+                appId: "1:124717722799:web:cd790e813603b561"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
             
             // データベースの参照を準備
             var ledRef = firebase.firestore().collection('led')
@@ -32,10 +43,12 @@
             // TODO1 送信ボタンが押された時の処理
             
             $('#led-on').click(function() {
-		    // {led: "ON"}を送信
+            	// {led: "ON"}を送信
+            	ledRef.add({led: "ON"});
             });
             $('#led-off').click(function() {
-		    // {led: "OFF"}を送信
+            // {led: "OFF"}を送信
+            	ledRef.add({led: "OFF"});
             });
 
         </script>
