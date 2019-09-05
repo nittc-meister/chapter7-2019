@@ -58,8 +58,8 @@ while True:
     data = {"temp": temp / 16.0}
     db.collection('temperature').document(str(datetime.datetime.now())).set(data)
     time.sleep(1)
-'''
 
+'''
 # 温度センサと接続できないうちはこの無限ループを使う
 while True:
     pass
