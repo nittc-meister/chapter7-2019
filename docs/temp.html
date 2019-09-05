@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -18,7 +18,17 @@
     var ctx = document.getElementById("tempchart");
     
     // TODO:0 ここに設定を入れる
-
+    var firebaseConfig = {
+        apiKey: "AIzaSyBTdpQdtggcBWICYBVHx-UPc_xPb-9lvdA",
+        authDomain: "tanaka-c8d94.firebaseapp.com",
+        databaseURL: "https://tanaka-c8d94.firebaseio.com",
+        projectId: "tanaka-c8d94",
+        storageBucket: "",
+        messagingSenderId: "727642708033",
+        appId: "1:727642708033:web:a16a2e002f8d1c88b7cec0"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
     var db = firebase.firestore()
     var initialData=[];

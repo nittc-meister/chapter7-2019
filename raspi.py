@@ -49,7 +49,6 @@ doc_watch = off_ref.on_snapshot(on_snapshot)
 
 # 温度センサの管理を行う部分
 # 温度センサと接続できたら，「'''」を取る
-'''
 while True:
     block = i2c.read_i2c_block_data(address, 0x00, 12)
     temp = (block[0] << 8 | block[1]) >> 3
