@@ -25,32 +25,17 @@
         </div>
         <script>
             // TODO0 ここに設定情報を貼り付ける  
-  var firebaseConfig = {
-    apiKey: "AIzaSyASqnqKHd9kTB0fYKXwDmZ88QUlgBIWqsA",
-    authDomain: "tapiokatabetai-bcf47.firebaseapp.com",
-    databaseURL: "https://tapiokatabetai-bcf47.firebaseio.com",
-    projectId: "tapiokatabetai-bcf47",
-    storageBucket: "tapiokatabetai-bcf47.appspot.com",
-    messagingSenderId: "265707566453",
-    appId: "1:265707566453:web:158aca7628ce2b13"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
+            
             // データベースの参照を準備
             var ledRef = firebase.firestore().collection('led')
         
             // TODO1 送信ボタンが押された時の処理
             
             $('#led-on').click(function() {
-            	ledRef.add({
-		    		led: "ON"
-		    	});	
+		    // {led: "ON"}を送信
             });
             $('#led-off').click(function() {
-            	ledRef.add({
-		    		led: "OFF"
-		    	});
+		    // {led: "OFF"}を送信
             });
 
         </script>
