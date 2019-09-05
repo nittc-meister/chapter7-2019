@@ -17,6 +17,7 @@ firebase_admin.initialize_app(cred)
 i2c = smbus.SMBus(1)
 address = 0x48
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(14, GPIO.OUT)
 GPIO.output(14, GPIO.HIGH)
@@ -33,10 +34,10 @@ def on_snapshot(doc_snapshot, changes, read_time):
         print(u'LED: {}'.format(led))
         if led == "ON":
             print "ON"
-            # ONにする処理
+            GPIO.output(14, GPIO.HIGH)
         elif led == "OFF":
             print "OFF"
-            # OFFにする処理
+            GPIO.output(14, GPIO.LOW)
 
 
 on_ref = db.collection('led').where(u'led', u'==', u'ON')
@@ -48,7 +49,7 @@ doc_watch = off_ref.on_snapshot(on_snapshot)
 
 # 温度センサの管理を行う部分
 # 温度センサと接続できたら，「'''」を取る
-'''
+
 while True:
     block = i2c.read_i2c_block_data(address, 0x00, 12)
     temp = (block[0] << 8 | block[1]) >> 3
@@ -58,7 +59,6 @@ while True:
     data = {"temp": temp / 16.0}
     db.collection('temperature').document(str(datetime.datetime.now())).set(data)
     time.sleep(1)
-'''
 
 # 温度センサと接続できないうちはこの無限ループを使う
 while True:
