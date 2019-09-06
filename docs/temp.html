@@ -18,7 +18,15 @@
     var ctx = document.getElementById("tempchart");
     
     // TODO:0 ここに設定を入れる
-
+	var firebaseConfig = {
+  		apiKey: "AIzaSyCwW0f2ilCExm8MIsCwDVJ9MUvvZcW_Mtk",
+  		authDomain: "lastproject-1aeb6.firebaseapp.com",
+ 		databaseURL: "https://lastproject-1aeb6.firebaseio.com",
+		projectId: "lastproject-1aeb6",
+		storageBucket: "lastproject-1aeb6.appspot.com",
+		messagingSenderId: "644643675438",
+		appId: "1:644643675438:web:8f6e76be0b97894566aebf"
+	};
 
     var db = firebase.firestore()
     var initialData=[];
